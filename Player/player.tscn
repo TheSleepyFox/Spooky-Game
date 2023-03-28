@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dragxwiukamfb"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_2avef"]
+[ext_resource type="Script" path="res://Player/Interaction.gd" id="2_5m4yc"]
+[ext_resource type="Script" path="res://Player/Revolver.gd" id="2_jebaj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vau3b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r82h2"]
+emission_enabled = true
+emission = Color(0.537255, 0.537255, 0.537255, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uol6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5obid"]
+size = Vector3(0.781848, 1, 0.647799)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6t6r4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rgtqr"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_2avef")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66547, 0)
+
+[node name="HeadMesh" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.827, 0)
+mesh = SubResource("SphereMesh_vau3b")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800532, -0.427824)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -100)
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+script = ExtResource("2_5m4yc")
+
+[node name="TorchSpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+transform = Transform3D(0.992542, 4.80676e-08, 0.121904, -0.01172, 0.995368, 0.095424, -0.121339, -0.0961411, 0.987944, 1.51853, -1.32099, -1.53485)
+shadow_enabled = true
+shadow_opacity = 0.95
+shadow_blur = 4.241
+distance_fade_enabled = true
+spot_range = 31.747
+spot_attenuation = 1.1487
+spot_angle = 26.54
+spot_angle_attenuation = 2.14355
+
+[node name="TorchMesh" type="MeshInstance3D" parent="Head/Camera3D/TorchSpotLight3D"]
+transform = Transform3D(0.397017, 0.0485357, -0.004688, -3.7253e-10, 0.0384565, 0.398147, 0.0487616, -0.395178, 0.0381697, -0.0447289, -0.0345074, 0.204673)
+material_override = SubResource("StandardMaterial3D_r82h2")
+mesh = SubResource("CylinderMesh_uol6u")
+skeleton = NodePath("../../../..")
+
+[node name="TorchMarker3D" type="Marker3D" parent="Head/Camera3D"]
+transform = Transform3D(0.975981, -0.0791462, 0.202968, 0, 0.931672, 0.3633, -0.217854, -0.354574, 0.909295, 0.408855, 0.425183, -0.206785)
+
+[node name="TorchLowMarker3D" type="Marker3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.995368, 0.0961411, 0, -0.0961411, 0.995368, 1.46946, -1.35339, -1.61837)
+
+[node name="TorchArea3D" type="Area3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0512183, -0.877186, -0.712423)
+
+[node name="TorchCollision" type="CollisionShape3D" parent="Head/TorchArea3D"]
+transform = Transform3D(1.1, 0, 0, 0, 0.5, 0, 0, 0, 3, 0.0364744, 0, 0)
+shape = SubResource("BoxShape3D_5obid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_6t6r4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_rgtqr")
+skeleton = NodePath("../..")
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("2_jebaj")
+
+[connection signal="body_entered" from="Head/TorchArea3D" to="." method="_on_torch_area_3d_body_entered"]
+[connection signal="body_exited" from="Head/TorchArea3D" to="." method="_on_torch_area_3d_body_exited"]

@@ -1,0 +1,389 @@
+[gd_scene load_steps=30 format=3 uid="uid://c6evgx7t87gee"]
+
+[ext_resource type="PackedScene" uid="uid://nd32akxn3vtv" path="res://DevResources/Blend/Apartment.blend" id="1_w7wxu"]
+[ext_resource type="PackedScene" uid="uid://dragxwiukamfb" path="res://Player/player.tscn" id="1_wpw4r"]
+[ext_resource type="Texture2D" uid="uid://1sfpj7rjlutb" path="res://DevResources/Textures/DecalsStain0012_1_masked_S.png" id="2_bkhrv"]
+[ext_resource type="Script" path="res://Interactable/InteractableLightSwitch.gd" id="2_qflvf"]
+[ext_resource type="Texture2D" uid="uid://b3wod5240h21e" path="res://DevResources/Textures/DecalsStain0006_1_masked_S.png" id="3_d0uyk"]
+[ext_resource type="Texture2D" uid="uid://gr34nx2co5q6" path="res://DevResources/Textures/DecalsStain0005_1_masked_S.png" id="4_yl4xe"]
+[ext_resource type="Texture2D" uid="uid://cs6udc731c64x" path="res://DevResources/Textures/DecalsStain0007_1_masked_S.png" id="5_t06ql"]
+[ext_resource type="PackedScene" uid="uid://6yq68jq68k0d" path="res://DevResources/Blend/Ghost.blend" id="5_u32gk"]
+[ext_resource type="Texture2D" uid="uid://c1n71taoh7qgg" path="res://DevResources/Textures/DecalsStain0002_1_masked_S.png" id="6_5s84j"]
+[ext_resource type="Texture2D" uid="uid://02ei3kkt83mn" path="res://DevResources/Textures/DecalsStain0031_1_masked_S.png" id="7_re8dp"]
+[ext_resource type="VideoStream" path="res://DevResources/References/TVStaticMov.ogv" id="10_e5dnw"]
+[ext_resource type="PackedScene" uid="uid://jqex1me4mwcy" path="res://DevResources/Blend/mannequin.blend" id="12_qnrm5"]
+[ext_resource type="Texture2D" uid="uid://br7snksq3aqob" path="res://DevResources/Textures/TexturesCom_WoodRough0021_2_M.jpg" id="13_tvfds"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3qtht"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dg5fk"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4330"]
+albedo_color = Color(0.968627, 0.419608, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dwtbx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_13f6h"]
+
+[sub_resource type="Environment" id="Environment_63ha6"]
+background_mode = 2
+ambient_light_energy = 0.42
+
+[sub_resource type="SphereMesh" id="SphereMesh_xlr35"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfka0"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uoax4"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k8g6"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_uoax4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_808ax"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjfim"]
+emission_enabled = true
+emission = Color(0.537255, 0.537255, 0.537255, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_40wjl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xkxf"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shadow_to_opacity = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdepn"]
+albedo_texture = ExtResource("13_tvfds")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d85sy"]
+albedo_texture = ExtResource("13_tvfds")
+
+[node name="World" type="Node3D"]
+
+[node name="Building" type="Node" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Building"]
+transform = Transform3D(61.8064, 0, 0, 0, 1, 0, 0, 0, 5.18283, -25.0786, -1.50502, -11.5208)
+mesh = SubResource("BoxMesh_3qtht")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Building/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building/Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dg5fk")
+
+[node name="Ground3" type="MeshInstance3D" parent="Building"]
+transform = Transform3D(1.02289, 0, 0, 0, 8.12859, 0, 0, 0, 5.18283, 5.97639, 0.538526, -11.5208)
+mesh = SubResource("BoxMesh_3qtht")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Building/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building/Ground3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dg5fk")
+
+[node name="Ground2" type="MeshInstance3D" parent="Building"]
+transform = Transform3D(61.8064, 0, 0, 0, 1, 0, 0, 0, 5.18283, -25.0786, 3.94451, -11.5208)
+mesh = SubResource("BoxMesh_3qtht")
+skeleton = NodePath("../..")
+
+[node name="Apartment" parent="." instance=ExtResource("1_w7wxu")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, -1, 3)
+
+[node name="Walls" parent="Apartment" index="6"]
+cast_shadow = 2
+
+[node name="Decal" type="Decal" parent="Apartment/Walls" index="0"]
+transform = Transform3D(0.499798, -0.866025, 0.0142225, 0.865675, 0.5, 0.0246341, -0.028445, 7.40149e-17, 0.999595, 8.69801, 1.09819, -3.05415)
+extents = Vector3(2, 2, 2)
+texture_albedo = ExtResource("2_bkhrv")
+emission_energy = 0.0
+
+[node name="Decal2" type="Decal" parent="Apartment/Walls" index="1"]
+transform = Transform3D(-0.0223385, 2.6454e-17, -0.99975, -7.05861e-23, 1, -5.17647e-23, 0.99975, -1.18394e-15, -0.0223383, 7.85791, 0.167131, -6.66748)
+extents = Vector3(1.9, 1, 1.5)
+texture_albedo = ExtResource("3_d0uyk")
+
+[node name="Decal3" type="Decal" parent="Apartment/Walls" index="2"]
+transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, 9.1219, 1.61543, -3.36727)
+extents = Vector3(1.5, 0.5, 1.5)
+texture_albedo = ExtResource("4_yl4xe")
+
+[node name="Decal4" type="Decal" parent="Apartment/Walls" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91778, 2.60587, -7.28549)
+texture_albedo = ExtResource("5_t06ql")
+
+[node name="Decal5" type="Decal" parent="Apartment/Walls" index="4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.70417, 0.147485, -10.0785)
+extents = Vector3(0.75, 0.5, 2)
+texture_albedo = ExtResource("6_5s84j")
+
+[node name="Decal6" type="Decal" parent="Apartment/Walls" index="5"]
+transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 4.75465, 1.0541, -12.0769)
+extents = Vector3(0.75, 0.5, 1)
+texture_albedo = ExtResource("7_re8dp")
+
+[node name="AnimationPlayer" parent="Apartment" index="52"]
+autoplay = "Quaker"
+
+[node name="Player" parent="." instance=ExtResource("1_wpw4r")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.173257, 0, 1.15407)
+
+[node name="LightSwitch" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.168577, 0, 0, 0, -6.969e-09, 0.447312, 0, -0.159432, -1.95526e-08, -2.54162, 1.63068, 2.06615)
+mesh = SubResource("BoxMesh_3qtht")
+surface_material_override/0 = SubResource("StandardMaterial3D_a4330")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightSwitch"]
+transform = Transform3D(5.93201, 0, 0, 0, -2.7417e-07, -6.27227, 0, 2.23558, -9.77204e-08, 24.2311, 11.7227, 2.39094)
+light_energy = 0.259
+shadow_enabled = true
+omni_range = 6.804
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LightSwitch"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 3.55271e-15, 1, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("2_qflvf")
+light = NodePath("../OmniLight3D")
+on_by_default = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightSwitch/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dg5fk")
+
+[node name="LightSwitch2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.168577, 0, 0, 0, -6.969e-09, 0.447312, 0, -0.159432, -1.95526e-08, -5.91122, -0.157053, 0.565864)
+mesh = SubResource("BoxMesh_3qtht")
+surface_material_override/0 = SubResource("StandardMaterial3D_a4330")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightSwitch2"]
+transform = Transform3D(5.93201, 0, 0, 0, -2.7417e-07, -6.27227, 0, 2.23558, -9.77204e-08, -4.88644, 40.8969, 3.87006)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LightSwitch2"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 3.55271e-15, 1, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("2_qflvf")
+light = NodePath("../OmniLight3D")
+on_by_default = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightSwitch2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dg5fk")
+
+[node name="Enemy" type="StaticBody3D" parent="." groups=["Enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31474, 0, -14.4053)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+mesh = SubResource("SphereMesh_dwtbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("SphereShape3D_13f6h")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -99.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Ammo
+6/6"
+
+[node name="InteractionLable" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press F to Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_63ha6")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999983, 0.00588141, 0, -0.00588141, 0.999983, 0.204621, 1.80036, 21.8474)
+light_color = Color(1, 0.14902, 0.129412, 1)
+shadow_enabled = true
+shadow_opacity = 0.96
+shadow_blur = 3.87
+spot_range = 40.0
+spot_angle = 19.28
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.86265e-09, 0, -1.86265e-09, 1, 0, -0.00350368, 0.595715)
+mesh = SubResource("SphereMesh_xlr35")
+surface_material_override/0 = SubResource("StandardMaterial3D_yfka0")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999983, 0.00588141, 0, -0.00588141, 0.999983, -4.97481, 1.80036, 21.8474)
+light_color = Color(1, 0.14902, 0.129412, 1)
+shadow_enabled = true
+shadow_opacity = 0.96
+shadow_blur = 3.87
+spot_range = 40.0
+spot_angle = 19.28
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SpotLight3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.25963e-09, 0, -3.25963e-09, 1, 0.106226, -0.00350368, 0.595715)
+mesh = SubResource("SphereMesh_xlr35")
+skeleton = NodePath("../../SpotLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_yfka0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.08031e-08, 0.548112, -2.79434e-22, 5.08031e-08, 1.04727e-15, -0.606565, -1.16224, -2.39587e-08, -2.65138e-08, -1.18776, 0.737002, 5.7622)
+material_override = SubResource("StandardMaterial3D_6k8g6")
+mesh = SubResource("PlaneMesh_808ax")
+skeleton = NodePath("../SubViewport/SubViewportContainer/VideoStreamPlayer")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(640, 480)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewportContainer"]
+layout_mode = 2
+stream = ExtResource("10_e5dnw")
+volume_db = -57.39
+autoplay = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.978914, 0.787796, 5.70406)
+light_energy = 0.111
+shadow_enabled = true
+shadow_blur = 7.852
+omni_range = 7.937
+
+[node name="TorchSpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.210604, -0.0786068, -0.974406, -0.0311287, 0.996796, -0.073685, 0.977076, 0.0148137, -0.212376, -8.58859, -0.809828, -7.88616)
+shadow_enabled = true
+shadow_opacity = 0.95
+shadow_blur = 4.241
+distance_fade_enabled = true
+spot_range = 31.747
+spot_attenuation = 1.1487
+spot_angle = 26.54
+spot_angle_attenuation = 2.14355
+
+[node name="TorchMesh" type="MeshInstance3D" parent="TorchSpotLight3D"]
+transform = Transform3D(0.397017, 0.0485357, -0.004688, -3.7253e-10, 0.0384565, 0.398147, 0.0487616, -0.395178, 0.0381697, -0.0447289, -0.0345074, 0.204673)
+material_override = SubResource("StandardMaterial3D_fjfim")
+mesh = SubResource("CylinderMesh_40wjl")
+skeleton = NodePath("../../../..")
+
+[node name="Ghost" parent="." instance=ExtResource("5_u32gk")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0.498437, -0.966499, 5.79892)
+
+[node name="Skeleton3D" parent="Ghost/GhostArmature" index="0"]
+bones/1/rotation = Quaternion(-0.138721, -3.81161e-15, 3.30737e-08, 0.990332)
+bones/2/rotation = Quaternion(-0.0280498, -1.46399e-14, 6.68759e-09, 0.999607)
+bones/3/rotation = Quaternion(0.241285, 6.86414e-15, -5.75268e-08, 0.970454)
+bones/4/rotation = Quaternion(0.0911856, -1.89527e-15, -2.17404e-08, 0.995834)
+bones/5/rotation = Quaternion(0.358269, 0.25956, 0.818255, 0.367057)
+bones/6/rotation = Quaternion(0.358269, -0.25956, -0.818255, 0.367057)
+
+[node name="Ghost" parent="Ghost/GhostArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6xkxf")
+transparency = 1.0
+cast_shadow = 2
+
+[node name="AnimationPlayer" parent="Ghost" index="1"]
+autoplay = "Quaker"
+
+[node name="Ghost2" parent="." instance=ExtResource("5_u32gk")]
+transform = Transform3D(-0.507025, 0, 1.14255, 0, 1.25, 0, -1.14255, 0, -0.507025, -23.3393, -0.966499, -10.3215)
+
+[node name="Skeleton3D" parent="Ghost2/GhostArmature" index="0"]
+bones/1/rotation = Quaternion(-0.138721, -3.81161e-15, 3.30737e-08, 0.990332)
+bones/2/rotation = Quaternion(-0.0280498, -1.46399e-14, 6.68759e-09, 0.999607)
+bones/3/rotation = Quaternion(0.241285, 6.86414e-15, -5.75268e-08, 0.970454)
+bones/4/rotation = Quaternion(0.0911856, -1.89527e-15, -2.17404e-08, 0.995834)
+bones/5/rotation = Quaternion(0.358269, 0.25956, 0.818255, 0.367057)
+bones/6/rotation = Quaternion(0.358269, -0.25956, -0.818255, 0.367057)
+
+[node name="Ghost" parent="Ghost2/GhostArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6xkxf")
+transparency = 1.0
+cast_shadow = 2
+
+[node name="AnimationPlayer" parent="Ghost2" index="1"]
+autoplay = "Quaker"
+
+[node name="Ghost3" parent="." instance=ExtResource("5_u32gk")]
+transform = Transform3D(0.983493, 0, -1.13258, 0, 1.5, 0, 1.13258, 0, 0.983493, -22.6935, -0.966499, -11.6623)
+
+[node name="Skeleton3D" parent="Ghost3/GhostArmature" index="0"]
+bones/1/rotation = Quaternion(-0.138721, -3.81161e-15, 3.30737e-08, 0.990332)
+bones/2/rotation = Quaternion(-0.0280498, -1.46399e-14, 6.68759e-09, 0.999607)
+bones/3/rotation = Quaternion(0.241285, 6.86414e-15, -5.75268e-08, 0.970454)
+bones/4/rotation = Quaternion(0.0911856, -1.89527e-15, -2.17404e-08, 0.995834)
+bones/5/rotation = Quaternion(0.358269, 0.25956, 0.818255, 0.367057)
+bones/6/rotation = Quaternion(0.358269, -0.25956, -0.818255, 0.367057)
+
+[node name="Ghost" parent="Ghost3/GhostArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6xkxf")
+transparency = 1.0
+cast_shadow = 2
+
+[node name="AnimationPlayer" parent="Ghost3" index="1"]
+autoplay = "Quaker"
+
+[node name="Ghost4" parent="." instance=ExtResource("5_u32gk")]
+transform = Transform3D(0.00216428, 0, 2, 0, 2, 0, -2, 0, 0.00216428, -24.305, -0.966499, -12.0261)
+
+[node name="Skeleton3D" parent="Ghost4/GhostArmature" index="0"]
+bones/1/rotation = Quaternion(-0.138721, -3.81161e-15, 3.30737e-08, 0.990332)
+bones/2/rotation = Quaternion(-0.0280498, -1.46399e-14, 6.68759e-09, 0.999607)
+bones/3/rotation = Quaternion(0.241285, 6.86414e-15, -5.75268e-08, 0.970454)
+bones/4/rotation = Quaternion(0.0911856, -1.89527e-15, -2.17404e-08, 0.995834)
+bones/5/rotation = Quaternion(0.358269, 0.25956, 0.818255, 0.367057)
+bones/6/rotation = Quaternion(0.358269, -0.25956, -0.818255, 0.367057)
+
+[node name="Ghost" parent="Ghost4/GhostArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6xkxf")
+transparency = 1.0
+cast_shadow = 2
+
+[node name="AnimationPlayer" parent="Ghost4" index="1"]
+autoplay = "Quaker"
+
+[node name="mannequin" parent="." instance=ExtResource("12_qnrm5")]
+transform = Transform3D(-1.24994, 0, -0.0118682, 0, 1.25, 0, 0.0118682, 0, -1.24994, -4.81363, -1, -35.4325)
+
+[node name="Manaqquin_Forsaken" parent="mannequin" index="0"]
+material_override = SubResource("StandardMaterial3D_bdepn")
+
+[node name="Manaqquin_WallGreif" parent="mannequin" index="1"]
+transform = Transform3D(1, 0, 1.11759e-08, 0, 1, 0, -1.11759e-08, 0, 1, 1.46003, 0, -0.569534)
+material_override = SubResource("StandardMaterial3D_d85sy")
+
+[editable path="Apartment"]
+[editable path="Ghost"]
+[editable path="Ghost2"]
+[editable path="Ghost3"]
+[editable path="Ghost4"]
+[editable path="mannequin"]

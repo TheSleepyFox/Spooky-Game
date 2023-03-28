@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://br7snksq3aqob"
+path.s3tc="res://.godot/imported/TexturesCom_WoodRough0021_2_M.jpg-e67c1415be0bfe295df410a633ae7fd1.s3tc.ctex"
+path.etc2="res://.godot/imported/TexturesCom_WoodRough0021_2_M.jpg-e67c1415be0bfe295df410a633ae7fd1.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc", "etc2"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://DevResources/Textures/TexturesCom_WoodRough0021_2_M.jpg"
+dest_files=["res://.godot/imported/TexturesCom_WoodRough0021_2_M.jpg-e67c1415be0bfe295df410a633ae7fd1.s3tc.ctex", "res://.godot/imported/TexturesCom_WoodRough0021_2_M.jpg-e67c1415be0bfe295df410a633ae7fd1.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
